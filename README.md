@@ -1,75 +1,85 @@
-npm create vite@latest my-app -- --template react
+# 1. Create Vite React project
 
-cd my-app
+npm create vite@latest Restaurant-Frontend -- --template react
+
+# 2. Go inside project
+
+cd Restaurant-Frontend
+
+# 3. Install dependencies
 
 npm install
-
-npm install react-router-dom
-
-npm install swiper
-
 npm install react-router-dom swiper --legacy-peer-deps
+
+# 4. Install dev tools
 
 npm install eslint@9.39.3 --save-dev
 
-npm install react-router-dom swiper
+# 5. Initialize Git
 
 git init
 
+# 6. Add all files
+
 git add .
 
-git remote add origin https://github.com/Qazafi-Hussain-Developer/REPO.git
+# 7. Commit
+
+git commit -m "Initial commit - React Vite setup"
+
+# 8. Add remote repo (replace URL with your GitHub repo)
+
+git remote add origin https://github.com/Qazafi-Hussain-Developer/Bye-Bye-Hunger.git
+
+# 9. Set branch to main
 
 git branch -M main
+
+# 10. Pull remote if there is README (avoids non-fast-forward errors)
+
+git pull origin main --allow-unrelated-histories
+
+# 11. Push to GitHub
+
 git push -u origin main
 
-git remote set-url origin https://github.com/YourUsername/Restaurant-Frontend.git
-
-src/
-├── components/
-│ ├── Navbar.jsx
-│ ├── Hero.jsx
-│ ├── Services.jsx
-│ ├── About.jsx
-│ ├── Menu.jsx
-│ ├── Reservation.jsx
-│ ├── Team.jsx
-│ ├── Testimonial.jsx
-│ └── Footer.jsx
+Restaurant-Frontend/
+├── public/
+│ ├── favicon.svg
+│ └── assets/ # images, videos, icons
 │
-├── App.jsx
-├── App.css
-└── index.js
-
-src/
-│
-├── components/
-│ ├── Navbar.jsx
-│ ├── Footer.jsx
-│
-├── pages/
-│ ├── Home/
-│ │ ├── Home.jsx
-│ │ ├── Hero.jsx
-│ │ ├── Services.jsx
-│ │ ├── Reservation.jsx
-│ │ ├── Menu.jsx
-│ │ ├── Team.jsx
-│ │ ├── Testimonial.jsx
-│ │ ├── Home.css
+├── src/
+│ ├── components/ # Shared reusable components
+│ │ ├── Navbar.jsx
+│ │ ├── Footer.jsx
+│ │ └── Hero.jsx
 │ │
+│ ├── pages/ # Page-level components
+│ │ ├── Home/
+│ │ │ ├── Home.jsx
+│ │ │ ├── Home.css
+│ │ │ ├── Hero.jsx
+│ │ │ ├── Services.jsx
+│ │ │ ├── Reservation.jsx
+│ │ │ ├── Menu.jsx
+│ │ │ ├── Team.jsx
+│ │ │ └── Testimonial.jsx
+│ │ │
+│ │ ├── About/
+│ │ │ ├── AboutPage.jsx
+│ │ │ └── AboutPage.css
+│ │ │
+│ │ ├── Contact/
+│ │ │ ├── Contact.jsx
+│ │ │ └── Contact.css
 │ │
-│ ├── About/
-│ │ ├── AboutPage.jsx
-│ │ ├── AboutPage.css
+│ ├── styles/ # Global and CSS variables
+│ │ ├── global.css
+│ │ └── variables.css
 │ │
-│ ├── Contact/
-│ │ ├── Contact.jsx
-│ │ ├── Contact.css
+│ ├── App.jsx
+│ └── main.jsx # Entry point
 │
-├── styles/
-│ ├── global.css
-│ ├── variables.css
-│
-├── App.jsx
-└── main.jsx (or index.js)
+├── .gitignore
+├── package.json
+└── README.md
