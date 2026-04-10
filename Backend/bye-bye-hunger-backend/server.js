@@ -40,7 +40,8 @@ app.use(cors({
   origin: [
     'http://localhost:5173', 
     'http://192.168.10.4:5173',
-    'https://abc123.ngrok.io'  // Add this when using ngrok
+    'https://abc123.ngrok.io',  // Add this when using ngrok
+    'http://192.168.10.2:5173',  // ← ADD THIS
   ],
   credentials: true
 }));
