@@ -1,13 +1,54 @@
-cd backend
-npm install nodemailer
+# 🍽️ Bye-Bye-Hunger
 
-# You can run this anywhere, even in a new terminal
-npm install -g ngrok
+A full-stack **Restaurant Management System** built using **React, Node.js, Express, MongoDB, and MySQL**.
 
-# Open a NEW terminal (anywhere, not in project folder)
-ngrok http 5173
+## 🚀 Features
 
-# In your frontend folder
-cd D:\Projects\Bye-Bye-Hunger - Latest\Frontend\bye-bye-hunger-frontend
-npm run dev -- --host
+### User Features
 
+- User Registration & Login (JWT)
+- Email Verification
+- Password Reset via Email
+- Browse Food Menu
+- Add to Cart
+- Place Orders
+- Order Tracking
+- Loyalty Points
+- Order Rating System
+
+### Admin Features
+
+- Admin Dashboard
+- Manage Foods (CRUD)
+- Manage Orders
+- Manage Users
+- View Customer Reviews
+
+### Technical Features
+
+- JWT Authentication
+- Role-based Access Control
+- Email Notifications
+- File Upload with Multer
+- Dual Database (MongoDB + MySQL)
+
+## 🛠 Tech Stack
+
+Frontend
+
+- React.js
+- Vite
+- Axios
+- CSS
+
+Backend
+
+- Node.js
+- Express.js
+- MongoDB
+- MySQL
+- JWT Authentication
+
+## 📦 Installation
+
+Clone the repository:
