@@ -1,5 +1,8 @@
 ---
 
+# Demo
+![Demo](screenshots/demo.gif)
+
 # 📷 Screenshots
 
 ### 🏠 Home Page
