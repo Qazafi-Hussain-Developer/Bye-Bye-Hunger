@@ -1,54 +1,45 @@
-# 🍽️ Bye-Bye-Hunger
 
-A full-stack **Restaurant Management System** built using **React, Node.js, Express, MongoDB, and MySQL**.
+---
 
-## 🚀 Features
+# 📷 Screenshots
 
-### User Features
+### Home Page
+![Home](screenshots/home.png)
 
-- User Registration & Login (JWT)
+### Menu Page
+![Menu](screenshots/menu.png)
+
+### Admin Dashboard
+![Admin](screenshots/admin.png)
+
+---
+
+# 🔐 Security Features
+
+- JWT Authentication
+- Password Hashing
+- Role-Based Access
+- Environment Variables
 - Email Verification
-- Password Reset via Email
-- Browse Food Menu
-- Add to Cart
-- Place Orders
-- Order Tracking
-- Loyalty Points
-- Order Rating System
 
-### Admin Features
+---
 
-- Admin Dashboard
-- Manage Foods (CRUD)
-- Manage Orders
-- Manage Users
-- View Customer Reviews
+# 📈 Future Improvements
 
-### Technical Features
+- Stripe Payment Gateway
+- Google Login
+- Real-time Order Tracking
+- Push Notifications
 
-- JWT Authentication
-- Role-based Access Control
-- Email Notifications
-- File Upload with Multer
-- Dual Database (MongoDB + MySQL)
+---
 
-## 🛠 Tech Stack
+# 👨‍💻 Author
 
-Frontend
+**Qazafi Hussain**
 
-- React.js
-- Vite
-- Axios
-- CSS
+Full Stack Developer  
+React | Node.js | MongoDB | Machine Learning
 
-Backend
+---
 
-- Node.js
-- Express.js
-- MongoDB
-- MySQL
-- JWT Authentication
-
-## 📦 Installation
-
-Clone the repository:
+⭐ If you like this project, consider giving it a star!
