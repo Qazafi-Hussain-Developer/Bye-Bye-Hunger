@@ -1,0 +1,333 @@
+/* Dashboard.css */
+
+.dashboard-section {
+  background-color: var(--light);
+  min-height: 100vh;
+}
+
+/* Loading State */
+.dashboard-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+}
+
+.dashboard-loading .spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Stat Cards */
+.dashboard-stat-card {
+  background: #ffffff;
+  border-radius: var(--radius-md, 8px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: var(--transition-normal, 0.3s ease);
+  height: 100%;
+}
+
+.dashboard-stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(254, 161, 22, 0.15);
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary) 0%, #e58e0e 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.stat-icon i {
+  font-size: 1.75rem;
+  color: white;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* Action Cards */
+.dashboard-card {
+  background: #ffffff;
+  border-radius: var(--radius-md, 8px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: var(--transition-normal, 0.3s ease);
+  height: 100%;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(254, 161, 22, 0.15);
+}
+
+.card-icon {
+  width: 70px;
+  height: 70px;
+  background: rgba(254, 161, 22, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.card-icon i {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.dashboard-card h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.dashboard-card .btn-primary {
+  background-color: var(--primary);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.dashboard-card .btn-primary:hover {
+  background-color: #e58e0e;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(254, 161, 22, 0.3);
+}
+
+/* Recent Sections */
+.recent-section {
+  background: #ffffff;
+  border-radius: var(--radius-md, 8px);
+  padding: 1.5rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.recent-section h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 1.5rem;
+}
+
+.loyalty-section {
+  background: #ffffff;
+  border-radius: var(--radius-md, 8px);
+  padding: 1.5rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.loyalty-section h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 1.5rem;
+}
+
+/* Table Styles */
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  font-weight: 600;
+  color: #495057;
+  border-top: none;
+  padding: 1rem;
+  background-color: #f8f9fa;
+}
+
+.table td {
+  padding: 1rem;
+  vertical-align: middle;
+  color: #6c757d;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(254, 161, 22, 0.05);
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-confirmed {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.status-preparing {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-ready {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-out-for-delivery {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.status-delivered {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Text Colors */
+.text-success {
+  color: #28a745 !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+/* Buttons */
+.btn-outline-primary {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+/* Error State */
+.dashboard-error .alert {
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-section {
+    padding: 2rem 0;
+  }
+  
+  .dashboard-stat-card {
+    margin-bottom: 1rem;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+  
+  .dashboard-card {
+    margin-bottom: 1rem;
+  }
+  
+  .recent-section,
+  .loyalty-section {
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  
+  .table {
+    min-width: 500px;
+  }
+  
+  .recent-section h3,
+  .loyalty-section h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-stat-card {
+    padding: 1.5rem !important;
+  }
+  
+  .stat-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .stat-icon i {
+    font-size: 1.25rem;
+  }
+  
+  .stat-value {
+    font-size: 1.25rem;
+  }
+  
+  .dashboard-card {
+    padding: 1.5rem !important;
+  }
+  
+  .card-icon {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .card-icon i {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+
+
+
+
+/* Member since section */
+.dashboard-stat-card .stat-value {
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.dashboard-stat-card .stat-label {
+  color: #000000;
+  font-size: 0.85rem;
+  margin-bottom: 0;
+}
+
+.dashboard-stat-card small {
+  color: #000000 !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-block;
+}

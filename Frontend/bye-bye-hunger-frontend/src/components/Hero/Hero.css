@@ -1,0 +1,325 @@
+/* ===== Hero Header ===== */
+.hero-header {
+  background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), 
+              url('/images/bg-hero.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 2rem;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-header .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Hero Image Animation ===== */
+.hero-header img {
+  animation: imgRotate 50s linear infinite;
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+}
+
+@keyframes imgRotate { 
+  100% { 
+    transform: rotate(360deg); 
+  } 
+}
+
+/* ===== Hero Text Styles ===== */
+.hero-header h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-header p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+/* ===== Animations ===== */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animated.slideInLeft {
+  animation: slideInLeft 1s ease forwards;
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animated.slideInDown {
+  animation: slideInDown 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wow.fadeInUp {
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.wow.zoomIn {
+  animation: zoomIn 0.5s ease forwards;
+}
+
+/* ===== Breadcrumb ===== */
+.breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(255, 255, 255, .5);
+  content: "/";
+  padding: 0 0.5rem;
+}
+
+/* ===== Container Styles ===== */
+.container-xxl {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 1400px) {
+  .container-xxl {
+    max-width: 1320px;
+  }
+}
+
+/* ===== Row and Column Grid ===== */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -12px;
+  margin-left: -12px;
+}
+
+.col-lg-6 {
+  position: relative;
+  width: 100%;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+@media (min-width: 992px) {
+  .col-lg-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  .text-lg-start {
+    text-align: left !important;
+  }
+  
+  .text-lg-end {
+    text-align: right !important;
+  }
+}
+
+/* ===== Display Utilities ===== */
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* ===== Spacing Utilities ===== */
+.my-5 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.py-5 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-5 {
+  margin-bottom: 3rem;
+}
+
+.me-3 {
+  margin-right: 1rem;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+
+/* ===== Position Utilities ===== */
+.position-relative {
+  position: relative;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+/* ===== Text Utilities ===== */
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: white;
+}
+
+.display-3 {
+  font-size: 4rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+/* ===== Button Styles (if not in global) ===== */
+.btn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.5s;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  line-height: 1.5;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background: #e5940e;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(254, 161, 22, 0.3);
+}
+
+.btn.py-sm-3 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.btn.px-sm-5 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+/* ===== Image Utilities ===== */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 991.98px) {
+  .hero-header {
+    text-align: center;
+    min-height: 500px;
+  }
+  
+  .hero-header h1 {
+    font-size: 3rem;
+  }
+  
+  .hero-header p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-header .btn {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-header {
+    padding: 80px 0;
+    /* min-height: auto; */
+  }
+  
+  .hero-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-header p {
+    font-size: 1rem;
+  }
+  
+  .display-3 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-header h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-header .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

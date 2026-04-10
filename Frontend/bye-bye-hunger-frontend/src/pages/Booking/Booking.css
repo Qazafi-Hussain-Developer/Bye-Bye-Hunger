@@ -1,0 +1,1083 @@
+/* Hero Header */
+.booking-hero-header {
+  background: linear-gradient(rgba(15, 23, 43, 0.9), rgba(15, 23, 43, 0.9)), url('/images/bg-hero.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 120px 0 80px;
+  margin-bottom: 3rem;
+}
+
+.booking-hero-content {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.booking-hero-title {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 1rem;
+  animation: slideInDown 1s ease;
+}
+
+.booking-breadcrumb-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.booking-breadcrumb-item {
+  font-size: 0.9rem;
+}
+
+.booking-breadcrumb-item a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.booking-breadcrumb-item a:hover {
+  color: var(--primary);
+}
+
+.booking-breadcrumb-item.active {
+  color: white;
+}
+
+.booking-breadcrumb-item + .booking-breadcrumb-item::before {
+  content: "/";
+  color: rgba(255, 255, 255, 0.5);
+  padding: 0 10px;
+}
+
+/* Video Section - Reuse from Home.css */
+.video {
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+    background: linear-gradient(rgba(15, 23, 43, .1), rgba(15, 23, 43, .1)), url('/images/video.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.video .btn-play {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-sizing: content-box;
+    display: block;
+    width: 32px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    padding: 18px 20px 18px 28px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.video .btn-play:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: pulse-border 1500ms ease-out infinite;
+}
+
+.video .btn-play:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: var(--primary);
+    border-radius: 50%;
+    transition: all 200ms;
+}
+
+.video .btn-play span {
+    display: block;
+    position: relative;
+    z-index: 3;
+    width: 0;
+    height: 0;
+    border-left: 32px solid var(--dark);
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+}
+
+@keyframes pulse-border {
+    0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Form Floating */
+.form-floating {
+    position: relative;
+}
+
+.form-floating input,
+.form-floating select,
+.form-floating textarea {
+    height: calc(3.5rem + 2px);
+    line-height: 1.25;
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 2px;
+    padding: 1rem 0.75rem;
+    width: 100%;
+}
+
+.form-floating label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 0.75rem;
+    overflow: hidden;
+    text-align: start;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+    border: 1px solid transparent;
+    transform-origin: 0 0;
+    transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+    color: #6c757d;
+}
+
+.form-floating input:focus ~ label,
+.form-floating input:not(:placeholder-shown) ~ label,
+.form-floating textarea:focus ~ label,
+.form-floating textarea:not(:placeholder-shown) ~ label {
+    opacity: .65;
+    transform: scale(.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+/* Modal */
+.modal-content {
+    background: white;
+}
+
+.modal-header {
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem;
+}
+
+.modal-header .btn-close {
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .booking-hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .booking-hero-header {
+        padding: 100px 0 60px;
+    }
+    
+    .video {
+        min-height: 300px;
+    }
+}
+
+
+
+
+
+
+/* Video Modal Styles for Booking Page */
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  /* backdrop-filter: blur(5px); */
+}
+
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  background: transparent;
+}
+
+.video-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 100000;
+}
+
+.video-close:hover {
+  color: #fea116;
+  transform: scale(1.1);
+}
+
+.video-modal-content .ratio {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.video-modal-content video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Video Play Button */
+.video {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+  background: linear-gradient(rgba(15, 23, 43, .7), rgba(15, 23, 43, .7)), url('/images/video.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.video .btn-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #fea116;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.video .btn-play span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-40%) translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 25px solid #0f172b;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+
+.video .btn-play:hover {
+  transform: translateX(-50%) translateY(-50%) scale(1.1);
+  background: #e5940e;
+}
+
+@media (max-width: 768px) {
+  .video {
+    min-height: 300px;
+  }
+  
+  .video .btn-play {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .video .btn-play span {
+    border-left: 18px solid #0f172b;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+  
+  .video-close {
+    top: -40px;
+    font-size: 30px;
+  }
+}
+
+
+/* Video Container Styles */
+.video-container {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  background: #000;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Optional: Add overlay on video */
+.video-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .video-container {
+    min-height: 300px;
+  }
+}
+
+
+
+/* Video Background Styles */
+.video-background {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  background: #000;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Optional overlay on video */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+}
+
+.video-content {
+  padding: 2rem;
+  animation: fadeInUp 1s ease;
+}
+
+.video-content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.video-content p {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Remove the old video button styles */
+.video-background .btn-play {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .video-background {
+    min-height: 300px;
+  }
+  
+  .video-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .video-content p {
+    font-size: 0.875rem;
+  }
+}
+
+
+
+/* Video Modal Styles */
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  /* backdrop-filter: blur(5px); */
+  animation: fadeIn 0.3s ease;
+}
+
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  background: transparent;
+}
+
+.video-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 100000;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.video-close:hover {
+  color: #fea116;
+  transform: scale(1.1);
+}
+
+.video-modal-content .ratio {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.video-modal-content video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Play Button on Overlay */
+.btn-play-modal {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #fea116;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #0f172b;
+}
+
+.btn-play-modal:hover {
+  transform: scale(1.1);
+  background: #e5940e;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .btn-play-modal {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+  
+  .video-close {
+    top: -40px;
+    font-size: 30px;
+  }
+}
+
+
+/* Video Modal Styles */
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  /* backdrop-filter: blur(5px); */
+  animation: fadeIn 0.3s ease;
+}
+
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  background: transparent;
+}
+
+.video-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 100000;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.video-close:hover {
+  color: #fea116;
+  transform: scale(1.1);
+}
+
+.video-modal-content .ratio {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.video-modal-content video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Video Thumbnail Styles - Keep original */
+.video {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+  background: linear-gradient(rgba(15, 23, 43, .7), rgba(15, 23, 43, .7)), url('/images/video.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.video .btn-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #fea116;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.video .btn-play span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-40%) translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 25px solid #0f172b;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+
+.video .btn-play:hover {
+  transform: translateX(-50%) translateY(-50%) scale(1.1);
+  background: #e5940e;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .video {
+    min-height: 300px;
+  }
+  
+  .video .btn-play {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .video .btn-play span {
+    border-left: 18px solid #0f172b;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+  
+  .video-close {
+    top: -40px;
+    font-size: 30px;
+  }
+}
+
+
+/* Background Video Section - Bottom of page */
+.background-video-section {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  background: #000;
+  margin-top: 2rem;
+}
+
+.bottom-background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.video-overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.video-overlay-content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease;
+}
+
+.video-overlay-content p {
+  font-size: 1.1rem;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Video Modal Styles */
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  /* backdrop-filter: blur(5px); */
+  animation: fadeIn 0.3s ease;
+}
+
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  background: transparent;
+}
+
+.video-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 100000;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.video-close:hover {
+  color: #fea116;
+  transform: scale(1.1);
+}
+
+.video-modal-content .ratio {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.video-modal-content video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Video Thumbnail Styles */
+.video {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+  background: linear-gradient(rgba(15, 23, 43, .7), rgba(15, 23, 43, .7)), url('/images/video.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.video .btn-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #fea116;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.video .btn-play span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-40%) translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 25px solid #0f172b;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+
+.video .btn-play:hover {
+  transform: translateX(-50%) translateY(-50%) scale(1.1);
+  background: #e5940e;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .video {
+    min-height: 300px;
+  }
+  
+  .video .btn-play {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .video .btn-play span {
+    border-left: 18px solid #0f172b;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+  
+  .background-video-section {
+    height: 300px;
+  }
+  
+  .video-overlay-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .video-overlay-content p {
+    font-size: 0.9rem;
+  }
+  
+  .video-close {
+    top: -40px;
+    font-size: 30px;
+  }
+}
+
+
+
+
+
+/* Fix for form-floating overlapping issues */
+.form-floating {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-floating input,
+.form-floating select,
+.form-floating textarea {
+  height: auto;
+  min-height: 58px;
+  line-height: 1.5;
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1rem 0.75rem 0.5rem;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.form-floating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 0.75rem;
+  overflow: hidden;
+  text-align: start;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
+  border: 1px solid transparent;
+  transform-origin: 0 0;
+  transition: all 0.2s ease;
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+/* When input has value or is focused */
+.form-floating input:focus ~ label,
+.form-floating input:not(:placeholder-shown) ~ label,
+.form-floating textarea:focus ~ label,
+.form-floating textarea:not(:placeholder-shown) ~ label,
+.form-floating select:focus ~ label,
+.form-floating select:not(:placeholder-shown) ~ label {
+  opacity: 0.8;
+  transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+  font-size: 0.85rem;
+}
+
+/* Fix for date input */
+input[type="date"] {
+  position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Fix for select element */
+.form-floating select {
+  padding: 1rem 0.75rem 0.5rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px;
+}
+
+/* Ensure proper spacing in dark background */
+.bg-dark .form-floating input,
+.bg-dark .form-floating select,
+.bg-dark .form-floating textarea {
+  background-color: #2a2a2a;
+  border-color: #3a3a3a;
+  color: white;
+}
+
+.bg-dark .form-floating label {
+  color: #adb5bd;
+}
+
+.bg-dark .form-floating input:focus,
+.bg-dark .form-floating select:focus,
+.bg-dark .form-floating textarea:focus {
+  border-color: #fea116;
+  box-shadow: 0 0 0 0.2rem rgba(254, 161, 22, 0.25);
+}
+
+/* Fix for placeholder */
+.form-floating input::placeholder,
+.form-floating textarea::placeholder {
+  color: transparent;
+}
+
+.form-floating input:focus::placeholder,
+.form-floating textarea:focus::placeholder {
+  color: #6c757d;
+}
+
+/* Row spacing fix */
+.row.g-3 {
+  --bs-gutter-y: 1rem;
+  margin-top: 0;
+}
+
+.row.g-3 > [class*="col-"] {
+  margin-top: var(--bs-gutter-y);
+}
+
+
+
+/* Calendar icon for date input */
+.form-floating input[type="date"] {
+  position: relative;
+  cursor: pointer;
+}
+
+.form-floating input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  color: transparent;
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+}
+
+/* Add calendar icon using pseudo-element */
+.form-floating input[type="date"] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='16' y1='2' x2='16' y2='6'%3E%3C/line%3E%3Cline x1='8' y1='2' x2='8' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='10' x2='21' y2='10'%3E%3C/line%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px;
+}
+
+/* For dark theme */
+.bg-dark .form-floating input[type="date"],
+[style*="background-color: #0f172b"] .form-floating input[type="date"] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23adb5bd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='16' y1='2' x2='16' y2='6'%3E%3C/line%3E%3Cline x1='8' y1='2' x2='8' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='10' x2='21' y2='10'%3E%3C/line%3E%3C/svg%3E");
+}

@@ -1,0 +1,238 @@
+/* src/App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #ffffff;
+  color: #555555;
+  line-height: 1.6;
+}
+
+/* App Layout - CRITICAL for Footer positioning */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* For pages WITHOUT Hero section - add top padding to avoid navbar overlap */
+.about-page,
+.service-page,
+.menu-page,
+.booking-page,
+.team-page,
+.testimonial-page,
+.contact-page,
+.signin-page,
+.signup-page,
+.dashboard-page,
+.myorders-page,
+.profile-page,
+.cart-page {
+  padding-top: 85px; /* Height of navbar */
+}
+
+/* For Home page with Hero section - no extra padding needed */
+.home-page {
+  padding-top: 0;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 991px) {
+  .about-page,
+  .service-page,
+  .menu-page,
+  .booking-page,
+  .team-page,
+  .testimonial-page,
+  .contact-page,
+  .signin-page,
+  .signup-page,
+  .dashboard-page,
+  .myorders-page,
+  .profile-page,
+  .cart-page {
+    padding-top: 70px; /* Mobile navbar height */
+  }
+}
+
+/* Container styling */
+.container-xxl {
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 1200px) {
+  .container-xxl {
+    max-width: 1320px;
+  }
+}
+
+/* Utility classes */
+.text-primary {
+  color: #fea116 !important;
+}
+
+.bg-primary {
+  background-color: #fea116 !important;
+}
+
+.btn-primary {
+  background-color: #fea116;
+  border-color: #fea116;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #e5940e;
+  border-color: #e5940e;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(254, 161, 22, 0.3);
+}
+
+/* Animation classes */
+.wow {
+  visibility: visible !important;
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.slideInLeft {
+  animation-name: slideInLeft;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fea116;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e5940e;
+}
+
+/* Form controls */
+.form-control:focus {
+  border-color: #fea116;
+  box-shadow: 0 0 0 0.2rem rgba(254, 161, 22, 0.25);
+}
+
+/* Button styles */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn-square {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  h1, .display-3 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  h3 {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .footer,
+  .back-to-top {
+    display: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fix navbar transparency on all pages */
+.hero-header,
+.about-hero,
+.contact-hero,
+.service-hero-header,
+.booking-hero-header,
+.signin-hero-header,
+.signup-hero-header {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000 !important;
+}
+
+.navbar.scrolled {
+  position: fixed !important;
+  background: #0f172b !important;
+}

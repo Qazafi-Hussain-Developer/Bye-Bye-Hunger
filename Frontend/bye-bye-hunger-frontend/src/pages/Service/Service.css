@@ -1,0 +1,223 @@
+/* Hero Header */
+.service-hero-header {
+  background: linear-gradient(rgba(15, 23, 43, 0.9), rgba(15, 23, 43, 0.9)), url('/images/bg-hero.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 120px 0 80px;
+  margin-bottom: 3rem;
+}
+
+.service-hero-content {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.service-hero-title {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 1rem;
+  animation: slideInDown 1s ease;
+}
+
+.service-breadcrumb-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.service-breadcrumb-item {
+  font-size: 0.9rem;
+}
+
+.service-breadcrumb-item a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.service-breadcrumb-item a:hover {
+  color: var(--primary);
+}
+
+.service-breadcrumb-item.active {
+  color: white;
+}
+
+.service-breadcrumb-item + .service-breadcrumb-item::before {
+  content: "/";
+  color: rgba(255, 255, 255, 0.5);
+  padding: 0 10px;
+}
+
+/* Service Item - Reuse from Home.css but add specific styles if needed */
+.service-item {
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+    background: white;
+    height: 100%;
+}
+
+.service-item:hover {
+    background: var(--primary);
+}
+
+.service-item * {
+    transition: .5s;
+}
+
+.service-item:hover * {
+    color: var(--light) !important;
+}
+
+/* Animations */
+@keyframes slideInDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .service-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .service-hero-header {
+    padding: 100px 0 60px;
+  }
+}
+
+
+
+
+
+/* Add spacing between service cards */
+.service-item {
+  margin-bottom: 30px;
+}
+
+/* On large screens, last 4 cards don't need bottom margin */
+@media (min-width: 992px) {
+  .col-lg-3:nth-last-child(-n+4) .service-item {
+    margin-bottom: 0;
+  }
+}
+
+
+
+
+/* Service Page Specific Styles */
+.service-page .service-item {
+  height: 100%;
+  transition: all 0.3s ease;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.service-page .service-item .p-4 {
+  padding: 1.5rem;
+}
+
+.service-page .service-item h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #0f172b;
+}
+
+.service-page .service-item p {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+.service-page .service-item i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Hover effect */
+.service-page .service-item:hover {
+  background: #FEA116;
+  transform: translateY(-5px);
+}
+
+.service-page .service-item:hover h5,
+.service-page .service-item:hover p,
+.service-page .service-item:hover i {
+  color: white !important;
+}
+
+/* Grid spacing fix */
+.service-page .row.g-4 {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 1.5rem;
+  margin-top: 0;
+}
+
+.service-page .col-lg-3,
+.service-page .col-sm-6 {
+  margin-bottom: 0;
+  display: flex;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .service-page .service-item .p-4 {
+    padding: 1.25rem;
+  }
+  
+  .service-page .service-item h5 {
+    font-size: 1.1rem;
+  }
+  
+  .service-page .service-item p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-page .row.g-4 {
+    --bs-gutter-y: 1rem;
+  }
+  
+  .service-page .service-item .p-4 {
+    padding: 1rem;
+  }
+}
+
+
+
+
+/* Fix service card spacing */
+.row.g-4 {
+  --bs-gutter-y: 30px;
+}
+
+.service-item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-item .p-4 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.service-item p {
+  flex: 1;
+  margin-bottom: 0;
+}

@@ -1,0 +1,26 @@
+# # Register a user
+# curl -X POST http://localhost:5000/api/auth/register \
+#   -H "Content-Type: application/json" \
+#   -d '{"name":"Test User","email":"test@example.com","password":"password123"}'
+
+# # Login
+# curl -X POST http://localhost:5000/api/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{"email":"test@example.com","password":"password123"}'
+
+# # Get all foods
+# curl http://localhost:5000/api/foods
+
+# # Submit contact form
+# curl -X POST http://localhost:5000/api/contact \
+#   -H "Content-Type: application/json" \
+#   -d '{"name":"John","email":"john@example.com","subject":"Test","message":"Hello"}'
+
+node_modules
+.env
+uploads
+logs
+dist
+build
+.DS_Store
+*.log

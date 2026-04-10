@@ -1,0 +1,575 @@
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./Navbar.css";
+
+const Navbar = () => {
+  const [isSticky, setIsSticky] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 45);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setIsDropdownOpen(false);
+  }, [location]);
+
+  const isActive = (path) => {
+    return location.pathname === path ? "active" : "";
+  };
+
+  const isPagesActive = () => {
+    return location.pathname === '/booking' || 
+           location.pathname === '/team' || 
+           location.pathname === '/testimonial';
+  };
+
+  const handleDropdownHover = (isHovering) => {
+    if (window.innerWidth >= 992) {
+      setIsDropdownOpen(isHovering);
+    }
+  };
+
+  return (
+    <nav className={`navbar navbar-dark ${isSticky ? "sticky-top" : ""}`}>
+      <div className="container">
+        {/* Brand/Logo */}
+        <Link className="navbar-brand" to="/">
+          <h1 className="text-primary m-0">
+            <i className="fa fa-utensils me-3"></i>Bye-Bye-Hunger
+          </h1>
+        </Link>
+
+        {/* Mobile Toggle Button */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle navigation"
+        >
+          <span className="fa fa-bars"></span>
+        </button>
+
+        {/* Navbar Links */}
+        <div className={`collapse navbar-collapse ${isMobileMenuOpen ? 'show' : ''}`}>
+          <div className="navbar-nav ms-auto py-0 pe-4">
+            <Link className={`nav-item nav-link ${isActive('/')}`} to="/">
+              Home
+            </Link>
+            <Link className={`nav-item nav-link ${isActive('/about')}`} to="/about">
+              About
+            </Link>
+            <Link className={`nav-item nav-link ${isActive('/service')}`} to="/service">
+              Service
+            </Link>
+            <Link className={`nav-item nav-link ${isActive('/menu')}`} to="/menu">
+              Menu
+            </Link>
+            
+            {/* Pages Dropdown */}
+            <div 
+              className="nav-item dropdown"
+              onMouseEnter={() => handleDropdownHover(true)}
+              onMouseLeave={() => handleDropdownHover(false)}
+            >
+              <button 
+                className={`nav-link dropdown-toggle ${isPagesActive() ? 'active' : ''}`}
+                onClick={() => window.innerWidth < 992 && setIsDropdownOpen(!isDropdownOpen)}
+              >
+                Pages
+              </button>
+              <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`}>
+                <Link className="dropdown-item" to="/booking">Booking</Link>
+                <Link className="dropdown-item" to="/team">Our Team</Link>
+                <Link className="dropdown-item" to="/testimonial">Testimonial</Link>
+              </div>
+            </div>
+
+            <Link className={`nav-item nav-link ${isActive('/contact')}`} to="/contact">
+              Contact
+            </Link>
+
+            {/* Sign In / Sign Up */}
+            <Link className={`nav-item nav-link ${isActive('/signin')}`} to="/signin">
+              Sign In
+            </Link>
+            <Link className={`nav-item nav-link ${isActive('/signup')}`} to="/signup">
+              Sign Up
+            </Link>
+          </div>
+
+          {/* Book A Table Button */}
+          <Link to="/booking" className="btn btn-primary py-2 px-4">
+            Book A Table
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
+
+// import React, { useState, useEffect } from "react";
+// import { Link, useLocation } from "react-router-dom";
+// import "./Navbar.css";
+
+// const Navbar = () => {
+//   const [isSticky, setIsSticky] = useState(false);
+//   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+//   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+//   const location = useLocation();
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       setIsSticky(window.scrollY > 45);
+//     };
+//     window.addEventListener("scroll", handleScroll);
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, []);
+
+//   // Close mobile menu on route change
+//   useEffect(() => {
+//     setIsMobileMenuOpen(false);
+//     setIsDropdownOpen(false);
+//   }, [location]);
+
+//   const isActive = (path) => {
+//     return location.pathname === path ? "active" : "";
+//   };
+
+//   const handleDropdownHover = (isHovering) => {
+//     if (window.innerWidth >= 992) {
+//       setIsDropdownOpen(isHovering);
+//     }
+//   };
+
+//   return (
+//     <nav className={`navbar navbar-dark ${isSticky ? "sticky-top" : ""}`}>
+//       <div className="container">
+//         {/* Brand/Logo */}
+//         <Link className="navbar-brand" to="/">
+//           <h1 className="text-primary m-0">
+//             <i className="fa fa-utensils me-3"></i>Bye-Bye-Hunger
+//           </h1>
+//         </Link>
+
+//         {/* Mobile Toggle Button */}
+//         <button
+//           className="navbar-toggler"
+//           type="button"
+//           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+//         >
+//           <span className="fa fa-bars"></span>
+//         </button>
+
+//         {/* Navbar Links */}
+//         <div className={`collapse navbar-collapse ${isMobileMenuOpen ? 'show' : ''}`}>
+//           <div className="navbar-nav ms-auto py-0 pe-4">
+//             <Link className={`nav-item nav-link ${isActive('/')}`} to="/">
+//               Home
+//             </Link>
+//             <Link className={`nav-item nav-link ${isActive('/about')}`} to="/about">
+//               About
+//             </Link>
+//             <Link className={`nav-item nav-link ${isActive('/service')}`} to="/service">
+//               Service
+//             </Link>
+//             <Link className={`nav-item nav-link ${isActive('/menu')}`} to="/menu">
+//               Menu
+//             </Link>
+            
+//             {/* Pages Dropdown */}
+// <div 
+//   className="nav-item dropdown"
+//   onMouseEnter={() => handleDropdownHover(true)}
+//   onMouseLeave={() => handleDropdownHover(false)}
+// >
+//   <button 
+//     className={`nav-link dropdown-toggle ${
+//       location.pathname === '/booking' || 
+//       location.pathname === '/team' || 
+//       location.pathname === '/testimonial' ? 'active' : ''
+//     }`}
+//     onClick={() => window.innerWidth < 992 && setIsDropdownOpen(!isDropdownOpen)}
+//   >
+//     Pages
+//   </button>
+//   <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`}>
+//     <Link className="dropdown-item" to="/booking">Booking</Link>
+//     <Link className="dropdown-item" to="/team">Our Team</Link>
+//     <Link className="dropdown-item" to="/testimonial">Testimonial</Link>
+//   </div>
+// </div>
+
+//             <Link className={`nav-item nav-link ${isActive('/contact')}`} to="/contact">
+//               Contact
+//             </Link>
+
+//             {/* Sign In / Sign Up */}
+//             <Link className={`nav-item nav-link ${isActive('/signin')}`} to="/signin">
+//               Sign In
+//             </Link>
+//             <Link className={`nav-item nav-link ${isActive('/signup')}`} to="/signup">
+//               Sign Up
+//             </Link>
+//           </div>
+
+//           {/* Book A Table Button */}
+//           <Link to="/booking" className="btn btn-primary py-2 px-4">
+//             Book A Table
+//           </Link>
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
+
+
+-----> Working Navbar.jsx
+
+/* ===== Navbar Base Styles ===== */
+.navbar-dark {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: transparent !important;
+  transition: all 0.3s ease;
+  padding: 1rem 0;
+}
+
+.navbar-dark.sticky-top {
+  position: fixed;
+  background: var(--dark) !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 0.5rem 0;
+}
+
+/* ===== Brand/Logo ===== */
+.navbar-dark .navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.navbar-dark .navbar-brand h1 {
+  font-size: 24px;
+  transition: .5s;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.navbar-dark .navbar-brand i {
+  color: var(--primary);
+}
+
+.navbar-dark .navbar-brand img {
+  max-height: 60px;
+  transition: .5s;
+}
+
+.sticky-top.navbar-dark .navbar-brand img {
+  max-height: 45px;
+}
+
+.sticky-top.navbar-dark .navbar-brand h1 {
+  font-size: 22px;
+}
+
+/* ===== Navigation Links ===== */
+.navbar-dark .navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  position: relative;
+  margin-left: 25px;
+  padding: 35px 0;
+  font-size: 15px;
+  color: var(--light) !important;
+  text-transform: uppercase;
+  font-weight: 500;
+  outline: none;
+  transition: .5s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.navbar-dark .navbar-nav .nav-item:first-child .nav-link {
+  margin-left: 0;
+}
+
+.sticky-top.navbar-dark .navbar-nav .nav-link {
+  padding: 20px 0;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--primary) !important;
+}
+
+/* ===== Dropdown Styles ===== */
+.navbar-dark .dropdown-toggle::after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  transition: transform 0.3s;
+}
+
+.navbar-dark .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 12rem;
+  padding: 0.5rem 0;
+  margin: 0;
+  background: var(--dark);
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.navbar-dark .dropdown-item {
+  color: var(--light);
+  padding: 0.7rem 1.5rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: .3s;
+  text-decoration: none;
+  display: block;
+  clear: both;
+  font-weight: 400;
+  text-align: inherit;
+  white-space: nowrap;
+  background: transparent;
+  border: 0;
+}
+
+.navbar-dark .dropdown-item:hover,
+.navbar-dark .dropdown-item.active {
+  background: transparent;
+  color: var(--primary);
+}
+
+/* ===== Button Styles ===== */
+.btn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: .5s;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 2px;
+}
+
+.btn.btn-primary {
+  background: var(--primary);
+  color: #FFFFFF;
+}
+
+.btn.btn-primary:hover {
+  background: #e5940e;
+  color: #FFFFFF;
+}
+
+.btn.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.btn.px-4 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* ===== Navbar Toggler (Mobile) ===== */
+.navbar-toggler {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 2px;
+  transition: .3s;
+  color: var(--light);
+  cursor: pointer;
+}
+
+.navbar-toggler:hover {
+  border-color: var(--primary);
+}
+
+.navbar-toggler .fa-bars {
+  color: var(--light);
+  font-size: 1.25rem;
+}
+
+.navbar-toggler:hover .fa-bars {
+  color: var(--primary);
+}
+
+/* ===== Navbar Collapse ===== */
+.navbar-collapse {
+  flex-basis: 100%;
+  flex-grow: 1;
+  align-items: center;
+}
+
+/* ===== Desktop Styles (992px and above) ===== */
+@media (min-width: 992px) {
+  .navbar-dark .dropdown-menu {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .navbar-dark .dropdown:hover .dropdown-menu,
+  .navbar-dark .dropdown-menu.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .navbar-dark .dropdown:hover .dropdown-toggle::after {
+    transform: rotate(180deg);
+  }
+}
+
+/* ===== Mobile Styles (991.98px and below) ===== */
+@media (max-width: 991.98px) {
+  .navbar-dark {
+    position: relative;
+    background: var(--dark) !important;
+    padding: 0.5rem 1rem;
+  }
+
+  .sticky-top.navbar-dark {
+    position: relative;
+  }
+
+  .navbar-dark .navbar-collapse {
+    margin-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+
+  .navbar-dark .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-dark .navbar-nav .nav-link,
+  .sticky-top.navbar-dark .navbar-nav .nav-link {
+    padding: 10px 0;
+    margin-left: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
+    width: 100%;
+  }
+
+  .navbar-dark .navbar-brand h1 {
+    font-size: 20px;
+  }
+
+  /* Dropdown in mobile */
+  .navbar-dark .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding-left: 1rem;
+  }
+
+  .navbar-dark .dropdown-item {
+    color: rgba(255,255,255,0.7);
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
+  }
+
+  .navbar-dark .dropdown-item:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-dark .dropdown-toggle::after {
+    float: right;
+    margin-top: 8px;
+  }
+
+  .btn.btn-primary {
+    margin-top: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ===== Utility Classes ===== */
+.ms-auto {
+  margin-left: auto !important;
+}
+
+.pe-4 {
+  padding-right: 1.5rem !important;
+}
+
+.py-0 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.position-relative {
+  position: relative;
+}
+
+/* ===== Container ===== */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1140px;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+
+
+---> Working Navbar.css
