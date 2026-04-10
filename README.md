@@ -1,4 +1,7 @@
 ---
+![MERN](https://img.shields.io/badge/MERN-Stack-blue)
+![React](https://img.shields.io/badge/React-Frontend-61DAFB)
+![Node](https://img.shields.io/badge/Node.js-Backend-green)
 
 # Demo
 ![Demo](screenshots/demo.gif)
