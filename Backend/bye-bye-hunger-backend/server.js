@@ -61,14 +61,33 @@ if (!existsSync('./logs')) mkdirSync('./logs');
 //   credentials: true
 // }));
 
+// app.use(cors({
+//   origin: [
+//     'http://localhost:5173',
+//     'https://bye-bye-hunger.vercel.app',
+//     'https://bye-bye-hunger-production.up.railway.app'
+//   ],
+//   credentials: true
+// }));
+
+
 app.use(cors({
   origin: [
     'http://localhost:5173',
     'https://bye-bye-hunger.vercel.app',
     'https://bye-bye-hunger-production.up.railway.app'
   ],
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+// Handle preflight requests
+app.options('*', cors());
+
+
+
+
 
 // 2. Body parsers BEFORE debug middleware
 app.use(express.json());
