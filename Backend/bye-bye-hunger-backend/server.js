@@ -53,7 +53,10 @@ app.use(cors({
     'http://192.168.10.4:5173',
     'https://abc123.ngrok.io',
     'http://192.168.10.2:5173',
-    'https://bye-bye-hunger.vercel.app'  // ADD YOUR FRONTEND URL
+    'https://bye-bye-hunger.vercel.app',
+    'https://bye-bye-hunger-production.up.railway.app',
+    /\.vercel\.app$/,     // Allow all vercel subdomains
+    /\.railway\.app$/     // Allow all railway subdomains
   ],
   credentials: true
 }));
