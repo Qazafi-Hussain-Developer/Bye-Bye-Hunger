@@ -47,17 +47,22 @@ if (!existsSync('./logs')) mkdirSync('./logs');
 
 // ============ MIDDLEWARE - ORDER MATTERS! ============
 // 1. CORS first
+// app.use(cors({
+//   origin: [
+//     'http://localhost:5173', 
+//     'http://192.168.10.4:5173',
+//     'https://abc123.ngrok.io',
+//     'http://192.168.10.2:5173',
+//     'https://bye-bye-hunger.vercel.app',
+//     'https://bye-bye-hunger-production.up.railway.app',
+//     /\.vercel\.app$/,     // Allow all vercel subdomains
+//     /\.railway\.app$/     // Allow all railway subdomains
+//   ],
+//   credentials: true
+// }));
+
 app.use(cors({
-  origin: [
-    'http://localhost:5173', 
-    'http://192.168.10.4:5173',
-    'https://abc123.ngrok.io',
-    'http://192.168.10.2:5173',
-    'https://bye-bye-hunger.vercel.app',
-    'https://bye-bye-hunger-production.up.railway.app',
-    /\.vercel\.app$/,     // Allow all vercel subdomains
-    /\.railway\.app$/     // Allow all railway subdomains
-  ],
+  origin: '*',
   credentials: true
 }));
 
