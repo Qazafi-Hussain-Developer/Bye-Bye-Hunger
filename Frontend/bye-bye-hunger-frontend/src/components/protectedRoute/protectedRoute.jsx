@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../../pages/context/AuthContext";
 import LoadingSpinner from "../loadingSpinner/loadingSpinner";
-import "./protectedroute.css";
+import "./protectedRoute.css";
 
 /**
  * Props:
