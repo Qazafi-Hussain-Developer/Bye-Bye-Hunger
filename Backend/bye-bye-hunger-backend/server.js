@@ -1,13 +1,13 @@
-// DEBUG: Check if Railway variables are loading (PUT THIS FIRST!)
+// DEBUG: Check if Railway variables are loading (PUT THIS FIRST - BEFORE ANYTHING ELSE!)
 console.log('=== RAILWAY VARIABLES CHECK ===');
 console.log('MONGODB_URI:', process.env.MONGODB_URI ? '✅ EXISTS' : '❌ MISSING');
 console.log('MYSQL_HOST:', process.env.MYSQL_HOST ? '✅ EXISTS' : '❌ MISSING');
+console.log('MYSQL_HOST value:', process.env.MYSQL_HOST);
 console.log('MYSQL_USER:', process.env.MYSQL_USER ? '✅ EXISTS' : '❌ MISSING');
 console.log('MYSQL_PASSWORD:', process.env.MYSQL_PASSWORD ? '✅ EXISTS' : '❌ MISSING');
 console.log('MYSQL_DATABASE:', process.env.MYSQL_DATABASE ? '✅ EXISTS' : '❌ MISSING');
 console.log('PORT:', process.env.PORT || '8080 (default)');
 console.log('===============================');
-
 
 import express from 'express';
 import { config } from 'dotenv';
@@ -51,8 +51,9 @@ app.use(cors({
   origin: [
     'http://localhost:5173', 
     'http://192.168.10.4:5173',
-    'https://abc123.ngrok.io',  // Add this when using ngrok
-    'http://192.168.10.2:5173',  // ← ADD THIS
+    'https://abc123.ngrok.io',
+    'http://192.168.10.2:5173',
+    'https://bye-bye-hunger.vercel.app'  // ADD YOUR FRONTEND URL
   ],
   credentials: true
 }));
@@ -143,17 +144,17 @@ const initializeApp = async () => {
     await seedAdmin();
     console.log('✅ Admin seeding completed');
     
-    // 4. Sync all existing user passwords between MongoDB and MySQL
-    console.log('\n🔄 Running password sync to fix any existing mismatches...');
-    await authController.syncAllPasswords();
-    console.log('✅ Password sync completed\n');
+    // 4. Sync all existing user passwords between MongoDB and MySQL (DISABLED FOR RAILWAY)
+    // console.log('\n🔄 Running password sync to fix any existing mismatches...');
+    // await authController.syncAllPasswords();
+    // console.log('✅ Password sync completed\n');
     
     // 5. Start the server
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
       console.log(`\n🚀 Server running on port ${PORT}`);
       console.log(`📝 API: http://localhost:${PORT}/api`);
-      console.log(`🏥 Health: http://localhost:${PORT}/api/haealth\n`);
+      console.log(`🏥 Health: http://localhost:${PORT}/api/health\n`);
     });
     
   } catch (error) {
