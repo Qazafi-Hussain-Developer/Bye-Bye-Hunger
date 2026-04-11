@@ -1,3 +1,14 @@
+// DEBUG: Check if Railway variables are loading (PUT THIS FIRST!)
+console.log('=== RAILWAY VARIABLES CHECK ===');
+console.log('MONGODB_URI:', process.env.MONGODB_URI ? '✅ EXISTS' : '❌ MISSING');
+console.log('MYSQL_HOST:', process.env.MYSQL_HOST ? '✅ EXISTS' : '❌ MISSING');
+console.log('MYSQL_USER:', process.env.MYSQL_USER ? '✅ EXISTS' : '❌ MISSING');
+console.log('MYSQL_PASSWORD:', process.env.MYSQL_PASSWORD ? '✅ EXISTS' : '❌ MISSING');
+console.log('MYSQL_DATABASE:', process.env.MYSQL_DATABASE ? '✅ EXISTS' : '❌ MISSING');
+console.log('PORT:', process.env.PORT || '8080 (default)');
+console.log('===============================');
+
+
 import express from 'express';
 import { config } from 'dotenv';
 import cors from 'cors';
