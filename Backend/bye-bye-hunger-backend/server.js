@@ -62,7 +62,11 @@ if (!existsSync('./logs')) mkdirSync('./logs');
 // }));
 
 app.use(cors({
-  origin: '*',
+  origin: [
+    'http://localhost:5173',
+    'https://bye-bye-hunger.vercel.app',
+    'https://bye-bye-hunger-production.up.railway.app'
+  ],
   credentials: true
 }));
 
